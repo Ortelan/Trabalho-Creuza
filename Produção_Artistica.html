@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomia do Quase - Uma Releitura</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET E BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #F4F1EA; /* Cor de papel creme/pólen */
+            color: #2C2C2C; /* Cinza chumbo, menos agressivo que preto puro */
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.6;
+            font-size: 18px;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px; /* Limite de largura para parecer uma página de livro */
+            width: 100%;
+            margin-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        /* --- TIPOGRAFIA --- */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #555;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        /* --- IMAGEM DE CAPA (Hero) --- */
+        .hero-image {
+            width: 100%;
+            height: 350px;
+            background-color: #ddd;
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Filtro para deixar a imagem mais dramática/antiga */
+            filter: sepia(20%) contrast(110%) grayscale(30%); 
+        }
+
+        /* Caso não tenha imagem ainda, esse bloco cria uma arte abstrata com CSS */
+        .placeholder-art {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2c2c2c 0%, #5a5a5a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: 'Special Elite', cursive;
+        }
+
+        /* --- TEXTOS --- */
+        .synopsis {
+            margin-bottom: 40px;
+            text-align: justify;
+            padding: 0 10px;
+        }
+
+        .synopsis p {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #8A3324; /* Um vermelho sangue seco para destaque */
+        }
+
+        /* --- BOTÃO --- */
+        .btn-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn-read {
+            background-color: transparent;
+            border: 1px solid #2C2C2C;
+            padding: 15px 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            color: #2C2C2C;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-read:hover {
+            background-color: #2C2C2C;
+            color: #F4F1EA;
+            transform: translateY(-2px);
+        }
+
+        /* --- CONTEÚDO OCULTO (A OBRA) --- */
+        #full-work {
+            display: none; /* Começa escondido */
+            opacity: 0;
+            transition: opacity 1s ease-in;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid #ccc;
+        }
+
+        #full-work.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        .story-content {
+            font-family: 'Special Elite', monospace; /* Fonte estilo máquina de escrever */
+            font-size: 1.1rem;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 5px solid #8A3324;
+        }
+
+        .story-title {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: 60px;
+            color: #888;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Anatomia do Quase</h1>
+            <h2>uma releitura de Perto do Coração Selvagem</h2>
+        </header>
+
+        <div class="hero-image">
+            <img src="capa-joana.jpg" alt="Silhueta fragmentada de mulher" onerror="this.style.display='none'; document.querySelector('.placeholder-art').style.display='flex'">
+            <div class="placeholder-art" style="display:none;">
+                [Imagem da Obra Aqui]
+            </div>
+        </div>
+
+        <div class="synopsis">
+            <p>Você encontrou os fragmentos de Joana.</p>
+            <p>Esta não é uma história linear. É o registro de uma dissecação espiritual. Nestas páginas virtuais, acompanhamos o momento exato em que uma mulher decide abandonar a civilidade para abraçar sua própria natureza predatória.</p>
+            <p>Entre memórias de uma infância cruel e um casamento sem sabor, Joana percebe que "ser feliz" é uma invenção medíocre. O que ela busca é <span class="highlight">ser viva</span> — mesmo que isso signifique destruir tudo ao redor.</p>
+            <p style="font-style: italic; text-align: center; margin-top: 20px;">Cuidado: ao ler, você corre o risco de se reconhecer no espelho.</p>
+        </div>
+
+        <div class="btn-container">
+            <button class="btn-read" onclick="revealStory()">Entrar no Coração Selvagem</button>
+        </div>
+
+        <div id="full-work">
+            <div class="story-content">
+                <div class="story-title">O Dia em que Comi a Maçã Podre</div>
+                
+                <p>Acordei e a casa estava em silêncio. Otávio dormia o sono dos justos, o sono dos que seguem regras. Olhei para ele e senti uma náusea doce.</p>
+                <br>
+                <p>Levantei-me e fui à cozinha. Havia uma maçã na fruteira, esquecida, com uma mancha escura de podridão na lateral. Era a única coisa real naquela casa imaculada.</p>
+                <br>
+                <p>Mordi a parte podre primeiro. Tinha gosto de terra e de tempo.</p>
+                <br>
+                <p>Percebi ali que eu nunca seria a esposa, a mãe, a mulher. Eu sou o avesso. Sou o que acontece quando ninguém está olhando. Liberdade não é voar; liberdade é saber que se pode cair e, ainda assim, apreciar o vento no rosto.</p>
+                <br>
+                <p>Hoje vou embora. Não levo malas. Levo apenas este coração selvagem, que bate descompassado, finalmente livre do ritmo dos outros.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Projeto de Releitura Artística &bull; Clarice Lispector</p>
+        </footer>
+    </div>
+
+    <script>
+        function revealStory() {
+            var storyDiv = document.getElementById('full-work');
+            var btn = document.querySelector('.btn-read');
+            
+            // Mostra o texto com efeito de fade
+            storyDiv.style.display = 'block';
+            
+            // Pequeno delay para permitir a transição CSS de opacidade
+            setTimeout(function() {
+                storyDiv.classList.add('visible');
+                
+                // Rola a página suavemente até o texto
+                storyDiv.scrollIntoView({ behavior: 'smooth' });
+            }, 10);
+
+            // Opcional: Esconde ou muda o texto do botão após clicar
+            btn.textContent = "Leitura Iniciada";
+            btn.style.opacity = "0.5";
+            btn.style.pointerEvents = "none";
+        }
+    </script>
+
+</body>
+</html>
