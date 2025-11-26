@@ -164,6 +164,24 @@
             font-weight: bold;
             text-transform: uppercase;
         }
+        /* --- NOVO CSS PARA AS IMAGENS DENTRO DA HISTÓRIA --- */
+        .story-image {
+            display: block; /* Faz a imagem ocupar a linha toda para poder centralizar */
+            width: 100%; /* Ocupa a largura disponível */
+            max-width: 450px; /* Mas não deixa ficar gigante em telas grandes */
+            height: auto; /* Mantém a proporção */
+            margin: 35px auto; /* Centraliza horizontalmente e dá espaço vertical */
+            border-radius: 3px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            /* Aplicamos o mesmo filtro da capa para manter a identidade visual */
+            filter: sepia(25%) contrast(115%) grayscale(20%);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Um pequeno charme: efeito ao passar o mouse (opcional) */
+        .story-image:hover {
+             transform: scale(1.02);
+        }
 
         /* Rodapé */
         footer {
@@ -202,7 +220,7 @@
             <button class="btn-read" onclick="revealStory()">Ler a Releitura</button>
         </div>
 
-        <div id="full-work">
+      <div id="full-work">
             <div class="story-content">
                 <div class="story-title">O Dia em que Comi a Maçã Podre</div>
                 
@@ -211,8 +229,14 @@
                 <p>Levantei-me e fui à cozinha. Havia uma maçã na fruteira, esquecida, com uma mancha escura de podridão na lateral. Era a única coisa real naquela casa imaculada.</p>
                 <br>
                 <p>Mordi a parte podre primeiro. Tinha gosto de terra e de tempo.</p>
+                
+                <img src="imagem-maca.jpg" alt="Símbolo da maçã ou do desejo" class="story-image">
+                
                 <br>
                 <p>Percebi ali que eu nunca seria a esposa, a mãe, a mulher. Eu sou o avesso. Sou o que acontece quando ninguém está olhando. Liberdade não é voar; liberdade é saber que se pode cair e, ainda assim, apreciar o vento no rosto.</p>
+                
+                <img src="imagem-liberdade.jpg" alt="Símbolo de liberdade ou partida" class="story-image">
+
                 <br>
                 <p>Hoje vou embora. Não levo malas. Levo apenas este coração selvagem, que bate descompassado, finalmente livre do ritmo dos outros.</p>
             </div>
@@ -251,6 +275,7 @@
 </body>
 
 </html>
+
 
 
 
